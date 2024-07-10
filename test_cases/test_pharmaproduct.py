@@ -24,7 +24,6 @@ class Test_pharma:
         self.products = self.wait.until(EC.visibility_of_all_elements_located(self.ALL_PRODUCTS_NAME))
 
         for self.product in self.products:
-            # print(self.product.text)
             if self.product.text == "Ecosprin 75mg Strip Of 14 Tablets":
                 self.product.click()
                 break
@@ -39,7 +38,7 @@ class Test_pharma:
         print(self.cart_price)
         assert self.price == self.cart_price
         self.pharma.remove_the_price()
-        time.sleep(2)
+
 
 
 

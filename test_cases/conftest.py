@@ -7,4 +7,5 @@ def setup():
     driver.get("https://pharmeasy.in/")
     driver.implicitly_wait(10)
     driver.maximize_window()
-    return driver
+    yield driver
+    driver.quit()
