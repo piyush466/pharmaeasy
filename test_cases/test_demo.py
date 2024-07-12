@@ -1,11 +1,5 @@
 import time
-
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.webdriver import WebDriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import Basepage
 from pages.pha import Pharma
 
