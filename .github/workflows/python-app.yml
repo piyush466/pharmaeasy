@@ -26,6 +26,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirement.txt
 
-    - name: Test with pytest
-      run: |
-        pytest
+    - name: Run PyTest
+      run: pytest --html=./pytest-report/report.html --self-contained-html
