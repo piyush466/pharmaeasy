@@ -26,5 +26,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirement.txt
 
+
     - name: Run PyTest
-      run: pytest --html=./pytest-report/report.html --self-contained-html
+      run: pytest --html=./pytest-report/report.html
+
+
+    - name: Upload test artifacts
+      uses: actions/upload-artifact@v2
+      if: ${{ always() }}
+      with:
+       name: test-results
+       path: pytest-report/report.html
+       if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to warn
