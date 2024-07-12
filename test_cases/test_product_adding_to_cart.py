@@ -2,10 +2,10 @@ import time
 import pytest
 from pages.base_page import Basepage
 from pages.pharmaeasy_page import Pharma
+from test_cases.BaseTest import BaseClass
 
 
-@pytest.mark.usefixtures('setup')
-class Test_new:
+class Test_new(BaseClass):
 
     def test_01_search_and_comparing_after_product_adding_to_cart(self):
         # Initialize page objects
