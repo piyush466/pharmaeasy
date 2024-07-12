@@ -45,4 +45,4 @@ class Test_new(BaseClass):
         self.pharma.remove_the_product_form_cart()
         # Verify that the product is removed from the cart
         assert (self.base_page.get_text(self.pharma.CHECK_AFTER_REMOVING_PRODUCT_TEXT_CSS)
-                == "0 Items in your Cart"), ("Product is still in your cart", self.base_page.take_screenshot("removed1"))
+            == "0 Items in your Cart"), ("Product is still in your cart", self.base_page.take_screenshot("removed1"))
