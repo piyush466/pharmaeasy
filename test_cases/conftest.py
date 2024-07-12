@@ -1,5 +1,7 @@
 import  pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 
 def pytest_addoption(parser):
@@ -22,12 +24,16 @@ def setup(request):
         base_url = "https://pharmeasy.in/"
 
 #browser
+    option = Options()
+    option.add_argument("--headless")
+    optionsfire = Options()
+    optionsfire.add_argument("--headless")
     if browser_name == "chrome":
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(options=option)
     elif browser_name == "edge":
         driver = webdriver.Edge()
     elif browser_name == "firefox":
-        driver = webdriver.Firefox()
+        driver = webdriver.Firefox(options=optionsfire)
     else:
         driver = webdriver.Chrome()
 
