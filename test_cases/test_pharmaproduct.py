@@ -1,5 +1,6 @@
 import time
 
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,7 +17,7 @@ class Test_pharma:
 
 
 
-    def test_pharma_product_price(self, setup):
+    def test_pharma_product_price(self,setup):
         self.driver = setup
         self.wait = WebDriverWait(self.driver,10)
         self.pharma = Pharma(self.driver)
@@ -33,11 +34,18 @@ class Test_pharma:
         self.price = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.PRICE_OF_PRODUCT_BY_CSS))).text
         print(self.price)
         self.products_price = self.price.replace("₹", "")
-        self.convert_product_price  = float(self.products_price)
+        self.convert_product_price = float(self.products_price)
         self.cart_price = self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.CART_TOTAL_PRICE_BY_CSS))).text
         print(self.cart_price)
         assert self.price == self.cart_price
         self.pharma.remove_the_price()
+
+
+    def test_title_of_page(self,setup):
+        self.driver = setup
+        title = self.driver.title
+        assert title == self.driver.title
+
 
 
 

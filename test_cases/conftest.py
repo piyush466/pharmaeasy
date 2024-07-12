@@ -6,7 +6,7 @@ def pytest_addoption(parser):
     parser.addoption("--browser_name", action="store", default="chrome")
     parser.addoption("--env", action="store", default='prod')
 
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def setup(request):
     browser_name = request.config.getoption("--browser_name")
     env = request.config.getoption("--env")
@@ -34,6 +34,7 @@ def setup(request):
     driver.get(base_url)
     driver.implicitly_wait(10)
     driver.maximize_window()
+    request.cls.driver = driver
     yield driver
     driver.quit()
 
