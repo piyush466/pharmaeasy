@@ -32,11 +32,11 @@ def setup(request):
 
     # Initialize the WebDriver based on the browser name
     if browser_name == "chrome":
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(options=option)
     elif browser_name == "edge":
         driver = webdriver.Edge()
     elif browser_name == "firefox":
-        driver = webdriver.Firefox()
+        driver = webdriver.Firefox(options=optionsfire)
     else:
         driver = webdriver.Chrome()  # Default to Chrome if an unknown browser is specified
 
